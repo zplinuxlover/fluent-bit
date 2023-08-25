@@ -24,6 +24,8 @@ FLB_PLUGIN(out_pulsar_native "${src}" "")
 
 link_libraries(${LIBPULSAR})
 
+#target_link_libraries(flb-plugin-out_pulsar_native -lfluent-bit)
+
 target_link_libraries(flb-plugin-out_pulsar_native ${LIBPULSAR})
 
 target_link_libraries(flb-plugin-out_pulsar_native -lpthread)

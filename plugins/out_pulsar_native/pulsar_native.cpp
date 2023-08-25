@@ -17,12 +17,20 @@
  *  limitations under the License.
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "fluent-bit/flb_output.h"
 #include <fluent-bit/flb_log_event_decoder.h>
 #include <fluent-bit/flb_output_plugin.h>
 #include <fluent-bit/flb_pack.h>
 #include <fluent-bit/flb_time.h>
 #include <fluent-bit/flb_utils.h>
+
+#ifdef __cplusplus
+}
+#endif
 
 #include "pulsar_config.h"
 

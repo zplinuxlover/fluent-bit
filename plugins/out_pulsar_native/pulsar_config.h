@@ -20,8 +20,17 @@
 #ifndef FLB_OUT_PULSAR_CONFIG_H
 #define FLB_OUT_PULSAR_CONFIG_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <fluent-bit/flb_output_plugin.h>
 #include <fluent-bit/flb_pack.h>
+#include <fluent-bit/flb_log.h>
+
+#ifdef __cplusplus
+}
+#endif
 #include <pulsar/Client.h>
 
 struct flb_out_pulsar {
