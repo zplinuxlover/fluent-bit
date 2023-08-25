@@ -672,7 +672,7 @@ struct flb_output_flush *flb_output_flush_create(struct flb_task *task,
                 return NULL;
             }
 
-            tmp = flb_event_chunk_create(evc->type, records, evc->tag, flb_sds_len(evc->tag), p_buf, p_size);
+            tmp = flb_event_chunk_create(evc->type, records, evc->tag, flb_sds_len(evc->tag), (char*)p_buf, p_size);
             if (!tmp) {
                 flb_coro_destroy(coro);
                 flb_free(out_flush);
@@ -729,7 +729,7 @@ struct flb_output_flush *flb_output_flush_create(struct flb_task *task,
                     if ((serialization_buffer_offset +
                          serialized_context_size) > p_size) {
                         resized_serialization_buffer = \
-                            flb_realloc(p_buf, p_size + serialized_context_size);
+                            (char *)flb_realloc(p_buf, p_size + serialized_context_size);
 
                         if (resized_serialization_buffer == NULL) {
                             cmt_encode_msgpack_destroy(serialized_context_buffer);
@@ -762,12 +762,12 @@ struct flb_output_flush *flb_output_flush_create(struct flb_task *task,
                 return NULL;
             }
 
-            out_flush->processed_event_chunk = flb_event_chunk_create(
+            out_flush->processed_event_chunk = (struct flb_event_chunk *)flb_event_chunk_create(
                                                 evc->type,
                                                 0,
                                                 evc->tag,
                                                 flb_sds_len(evc->tag),
-                                                p_buf,
+                                                (char*)p_buf,
                                                 p_size);
 
             if (out_flush->processed_event_chunk == NULL) {
@@ -826,7 +826,7 @@ struct flb_output_flush *flb_output_flush_create(struct flb_task *task,
                     if ((serialization_buffer_offset +
                          serialized_context_size) > p_size) {
                         resized_serialization_buffer = \
-                            flb_realloc(p_buf, p_size + serialized_context_size);
+                            (char *)flb_realloc(p_buf, p_size + serialized_context_size);
 
                         if (resized_serialization_buffer == NULL) {
                             ctr_encode_msgpack_destroy(serialized_context_buffer);
@@ -864,7 +864,7 @@ struct flb_output_flush *flb_output_flush_create(struct flb_task *task,
                                                 0,
                                                 evc->tag,
                                                 flb_sds_len(evc->tag),
-                                                p_buf,
+                                                (char*)p_buf,
                                                 p_size);
 
             if (out_flush->processed_event_chunk == NULL) {

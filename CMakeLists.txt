@@ -256,6 +256,7 @@ option(FLB_OUT_S3                      "Enable AWS S3 output plugin"            
 option(FLB_OUT_VIVO_EXPORTER           "Enabel Vivo exporter output plugin"           Yes)
 option(FLB_OUT_WEBSOCKET               "Enable Websocket output plugin"               Yes)
 option(FLB_OUT_CHRONICLE               "Enable Google Chronicle output plugin"        Yes)
+option(FLB_OUT_PULSAR_NATIVE           "Enable pulsar output plugin"                  Yes)
 option(FLB_FILTER_ALTER_SIZE           "Enable alter_size filter"                     Yes)
 option(FLB_FILTER_AWS                  "Enable aws filter"                            Yes)
 option(FLB_FILTER_ECS                  "Enable AWS ECS filter"                        Yes)
